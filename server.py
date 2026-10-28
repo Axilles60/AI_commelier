@@ -218,7 +218,8 @@ def serve(port: int):
         get_graph()
     except Exception as e:  # нет ключа: интерфейс всё равно открывается, чат объясняет, что модель не настроена
         print(f"Модель недоступна ({type(e).__name__}). Интерфейс откроется, но сомелье не ответит: "
-              "заполните OPENAI_API_KEY в .env (см. .env.example). Офлайн-тесты ключа не требуют: python -m pytest")
+              "заполните OPENAI_API_KEY в .env (см. .env.example). Офлайн-тесты ключа не требуют: python -m pytest",
+              flush=True)  # без flush подсказка застревала в буфере, если вывод идёт не в терминал
     try:
         v6 = ThreadingHTTPServerV6(("::1", port), Handler)
         threading.Thread(target=v6.serve_forever, daemon=True).start()
@@ -231,5 +232,5 @@ if __name__ == "__main__":
     import os
     load_env()  # PORT и ключ из .env — до чтения порта
     port = int(os.getenv("PORT", 8000))
-    print(f"Своё Вино · ИИ-сомелье: http://localhost:{port}")
+    print(f"Своё Вино · ИИ-сомелье: http://localhost:{port}", flush=True)
     serve(port)

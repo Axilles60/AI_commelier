@@ -20,3 +20,5 @@ data/articles.json
 eval/teacher_answers.json
 eval/teacher_dataset.jsonl
 .claude/
+.venv/
+venv/
