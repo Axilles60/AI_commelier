@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Своё Вино · Профиль</title>
+<link rel="stylesheet" href="/style.css">
+<style>
+main{flex:1;min-height:0;overflow:auto;padding:16px}
+.tabs{display:flex;gap:6px;margin-bottom:16px}
+.tabs a.on{background:var(--wine);border-color:var(--wine);color:#fff}
+section h3{margin:18px 0 8px;font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+.chiplist{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:flex;align-items:center;gap:8px;background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:4px 6px 4px 12px}
+.wine{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-bottom:10px;display:flex;gap:12px;align-items:flex-start}
+.wine .info{flex:1;min-width:0}
+.wine h4{margin:0 0 4px;font-size:15px}
+.badge{display:inline-block;font-size:12px;border-radius:6px;padding:1px 8px;margin-right:6px;background:var(--wine2);color:var(--ink)}
+.empty{background:var(--panel);border:1px dashed var(--line);border-radius:12px;padding:16px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="brand" href="/">Своё Вино</a><span class="sub">ИИ-сомелье по каталогу vino-svoe.ru</span>
+    <nav><a class="btn" href="/">К чату</a><a class="btn primary" href="/profile">Профиль</a></nav>
+  </header>
+  <main>
+    <div class="tabs"><a class="btn" id="tab-profile" href="/profile">Вкусовой профиль</a><a class="btn" id="tab-fav" href="/favorites">Избранное</a></div>
+    <div id="content"></div>
+    <div style="margin-top:28px;border-top:1px solid var(--line);padding-top:14px">
+      <button class="btn small" id="wipe" type="button">Удалить мои данные</button>
+      <span class="muted" style="font-size:13px;margin-left:8px">профиль вкусов, избранное и скрытые вина</span>
+    </div>
+  </main>
+</div>
+<script>
+const uid = (()=>{try{let u=localStorage.getItem('uid');if(!u){u='u'+Math.random().toString(36).slice(2,9);localStorage.setItem('uid',u)}return u}catch(e){return 'guest'}})();
+const esc = s => String(s).replace(/[&<>"]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const isFav = location.pathname === '/favorites';
+document.getElementById(isFav ? 'tab-fav' : 'tab-profile').classList.add('on');
+const box = document.getElementById('content');
+const GROUPS = [['liked_categories','Любимые категории'],['liked_sweetness','Сладость'],['liked_grapes','Любимые сорта'],
+                ['liked_regions','Любимые регионы'],['avoid','Не люблю']];
+async function load(){ return (await fetch('/api/profile/'+encodeURIComponent(uid))).json(); }
+async function post(url, body){ return (await fetch(url,{method:'POST',body:JSON.stringify(Object.assign({user_id:uid}, body))})).json(); }
+
+function renderHidden(list){
+  if (!list.length) return '';
+  return `<section><h3>Скрытые вина</h3><div class="muted" style="margin-bottom:8px">Вы отметили их «Не нравится» — сомелье их больше не предлагает.</div>` +
+    list.map(w => `<div class="wine"><div class="info"><h4>${esc(w.title)}</h4><div class="muted">${esc(w.category||'')} · ${esc(w.region||'')}</div></div>
+    <button class="btn small" data-key="disliked" data-value="${esc(w.id)}">Вернуть</button></div>`).join('') + '</section>';
+}
+function renderProfile(p, hidden){
+  const filled = GROUPS.filter(([k]) => (p[k]||[]).length);
+  let html = filled.map(([k,title]) => `<section><h3>${title}</h3><div class="chiplist">${p[k].map(v =>
+    `<span class="chip">${esc(v)}<button class="btn small" data-key="${k}" data-value="${esc(v)}">Убрать</button></span>`).join('')}</div></section>`).join('');
+  if (!filled.length && !(hidden||[]).length) html = '<div class="empty">Профиль пока пуст. Расскажите в чате, что вам нравится, например: «люблю сухое красное из Крыма» или «не люблю сладкое». Сомелье запомнит это и будет учитывать при подборе.</div>';
+  box.innerHTML = html + renderHidden(hidden||[]);
+}
+function renderFavorites(list){
+  if (!list.length) { box.innerHTML = '<div class="empty">В избранном пока ничего нет. В чате под каждым рекомендованным вином есть кнопки «В избранное» и «Нравится».</div>'; return; }
+  box.innerHTML = list.map(w => `<div class="wine"><div class="info"><h4>${esc(w.title)}</h4>
+    <div class="muted">${esc(w.category||'')} · ${esc(w.region||'')} · ${esc(w.manufacturer||'')}</div>
+    <div class="muted">${esc((w.grapes||[]).join(', '))}</div>
+    <div style="margin-top:6px">${w.saved?'<span class="badge">В избранном</span>':''}${w.liked?'<span class="badge">Понравилось</span>':''}
+    <a href="${esc(w.url)}" target="_blank" rel="noopener">Открыть на vino-svoe.ru</a></div></div>
+    <button class="btn small" data-wine="${esc(w.id)}">Убрать</button></div>`).join('');
+}
+box.addEventListener('click', async e => {
+  const b = e.target.closest('button'); if (!b) return;
+  if (b.dataset.wine) renderFavorites((await post('/api/favorites/remove', {wine_id: b.dataset.wine})).favorites);
+  else if (b.dataset.key) { await post('/api/profile/remove', {key: b.dataset.key, value: b.dataset.value}); const j = await load(); renderProfile(j.profile||{}, j.hidden||[]); }
+});
+document.getElementById('wipe').onclick = async () => {
+  if (!confirm('Удалить ваш профиль вкусов, избранное и скрытые вина? Это действие нельзя отменить.')) return;
+  await post('/api/profile/delete', {});
+  isFav ? renderFavorites([]) : renderProfile({}, []);
+};
+load().then(j => isFav ? renderFavorites(j.favorites||[]) : renderProfile(j.profile||{}, j.hidden||[]));
+</script>
+</body>
+</html>

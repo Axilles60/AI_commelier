@@ -1,0 +1,1346 @@
+{
+ "totals": {
+  "grounding_grader": 27,
+  "constraint_grader": 27,
+  "behavior_grader": 27,
+  "state_grader": 27
+ },
+ "n": 27,
+ "repeat": 1,
+ "pass_k": {},
+ "rows": [
+  {
+   "id": "t01",
+   "trial": 0,
+   "pass": true,
+   "tools": [
+    "search_wines"
+   ],
+   "tool_calls": [
+    {
+     "tool": "search_wines",
+     "args": {
+      "color": "красное",
+      "sweetness": "сухое",
+      "dish": "стейк",
+      "limit": 5
+     }
+    }
+   ],
+   "grades": {
+    "grounding_grader": {
+     "pass": true,
+     "details": []
+    },
+    "constraint_grader": {
+     "pass": true,
+     "details": [
+      "3 вин ок"
+     ]
+    },
+    "behavior_grader": {
+     "pass": true,
+     "details": [
+      "n/a"
+     ]
+    },
+    "state_grader": {
+     "pass": true,
+     "details": [
+      "n/a"
+     ]
+    }
+   },
+   "teacher": {
+    "score": 0.605,
+    "details": {
+     "wine_recall": 0.0,
+     "color": 1.0,
+     "sweetness": 1.0,
+     "region": 0.5,
+     "grapes": 0.2
+    }
+   },
+   "answer": "Подобрал три красных сухих, которые на сайте рекомендуют к мясу и стейкам:\n\n**«135»** — Усадьба Перовских, Крым (Мурведр + Сира). Насыщенное, со зрелыми танинами, аромат чёрных ягод, перца и ванили — плотная структура хорошо держит жареное мясо. Подавать при 16–18 °C. [Карточка](https://vino-svoe.ru/wines/135)\n\n**«AGORA Бастардо»** — AGORA Winery, Крым. Выдержка в дубе, темные ягоды и сливочный шоколад, умеренная терпкость в послевкусии — к стейку с кровью. 18–20 °C. [Карточка](https://vino-svoe.ru/wines/agora-bastardo)\n\n**«Каберне Совиньон»** — Абрау-Дюрсо, Кубань. Черная смородина, фиалка, чабрец и черный перец; вкус мягкий и объемный, скорее для стейка поменьше жиром. 17–19 °C. [Карточка](https://vino-svoe.ru/wines/abrau-dyurso-kaberne-sovinon-krasnoe-suhoe-125)\n\nЦены нужно уточнять на сайте. Если стейк с выраженным перцем или соусом — скажите, подберу плотнее или, наоборот, легче.",
+   "seconds": 14.4
+  },
+  {
+   "id": "t02",
+   "trial": 0,
+   "pass": true,
+   "tools": [
+    "search_wines"
+   ],
+   "tool_calls": [
+    {
+     "tool": "search_wines",
+     "args": {
+      "color": "белое",
+      "dish": "суши",
+      "limit": 5
+     }
+    }
+   ],
+   "grades": {
+    "grounding_grader": {
+     "pass": true,
+     "details": []
+    },
+    "constraint_grader": {
+     "pass": true,
+     "details": [
+      "4 вин ок"
+     ]
+    },
+    "behavior_grader": {
+     "pass": true,
+     "details": [
+      "n/a"
+     ]
+    },
+    "state_grader": {
+     "pass": true,
+     "details": [
+      "n/a"
+     ]
+    }
+   },
+   "teacher": {
+    "score": 0.417,
+    "details": {
+     "wine_recall": 0.0,
+     "color": 1.0,
+     "sweetness": 0.33,
+     "region": 0.33,
+     "grapes": 0.0
+    }
+   },
+   "answer": "К суши и сашими хорошо подходят белые с высокой кислотностью и минеральностью — они освежают и не перебивают рыбу.\n\n1. «Katharon: Рислинг сухое» (Кубань) — звонкая кислотность, цитрус и кремнистая минеральность; на сайте рекомендовано к азиатской кухне и морепродуктам. Подавайте при 8–10 °C.\nhttps://vino-svoe.ru/wines/katharon-katharon-risling-suhoe\n\n2. «Мезенка: Рислинг сухое» (KATHARON, Кубань) — зелёное яблоко, лайм, лёгкость и точность; отлично ляжет на белую рыбу и роллы. Температура 9–11 °C.\nhttps://vino-svoe.ru/wines/katharon-mezenka-risling-suhoe\n\n3. «Рислинг Резерв» (Усадьба Перовских, Крым) — полусухое, с мягким балансом и выдержкой во французском дубе; подойдёт, если суши жирноваты или с соусами. 10–12 °C.\nhttps://vino-svoe.ru/wines/risling-rezerv\n\nЕсли любите чуть сладковатее, есть «Monte Garu белое полусладкое» (Дагестан) — тоже к азиатской кухне.\n\nСсылки на вина:\n«Monte Garu белое полусладкое»: https://vino-svoe.ru/wines/monte-garu-beloe-polusladkoe",
+   "seconds": 12.6
+  },
+  {
+   "id": "t03",
+   "trial": 0,
+   "pass": true,
+   "tools": [
+    "search_wines"
+   ],
+   "tool_calls": [
+    {
+     "tool": "search_wines",
+     "args": {
+      "grape": "Красностоп",
+      "limit": 5
+     }
+    }
+   ],
+   "grades": {
+    "grounding_grader": {
+     "pass": true,
+     "details": []
+    },
+    "constraint_grader": {
+     "pass": true,
+     "details": [
+      "3 вин ок"
+     ]
+    },
+    "behavior_grader": {
+     "pass": true,
+     "details": [
+      "n/a"
+     ]
+    },
+    "state_grader": {
+     "pass": true,
+     "details": [
+      "n/a"
+     ]
+    }
+   },
+   "teacher": {
+    "score": 0.437,
+    "details": {
+     "wine_recall": 0.0,
+     "color": 0.5,
+     "sweetness": 1.0,
+     "region": 0.33,
+     "grapes": 0.25
+    }
+   },
+   "answer": "Красностоп — наш автохтон: плотный, ягодный, с пряными нотами. Три разных прочтения:\n\n«Казачье», Дача Сердюка (Красностоп Золотовский, Долина Дона) — чистосортное, многослойное: темные ягоды, сухофрукты, шоколад, чернослив. К мясу и сырам, 16–18 °C.\nhttps://vino-ssoe.ru/wines/dacha-serdyuka-kazache-krasnostop-zolotovskiy-krasnoe-suhoe-135\n\n«Фанагория Сакра Сенной» (Кубань) — плотное, полнотелое, тёмные ягоды, терновник, специи и дуб; к красному мясу и выдержанным сырам.\nhttps://vino-svoe.ru/wines/fanagoriya-fanagoriya-sakra-sennoy-krasnostop-krasnoe-suhoe-135\n\n«Красностоп розе», Domaine de la Vivandiere (Крым) — если хочется легче: малина, красная смородина, солоноватость; к закускам и фруктам, 10–12 °C.\nhttps://vino-svoe.ru/wines/domaine-de-la-vivandiere-krasnostop-roze-rozovoe-suhoe-134\n\nСсылки на вина:\n«Казачье»: https://vino-svoe.ru/wines/dacha-serdyuka-kazache-krasnostop-zolotovskiy-krasnoe-suhoe-135",
+   "seconds": 18.2
+  },
+  {
+   "id": "t04",
+   "trial": 0,
+   "pass": true,
+   "tools": [
+    "search_wines"
+   ],
+   "tool_calls": [
+    {
+     "tool": "search_wines",
+     "args": {
+      "color": "красное",
+      "sweetness": "сухое",
+      "region": "Крым",
+      "limit": 5
+     }
+    }
+   ],
+   "grades": {
+    "grounding_grader": {
+     "pass": true,
+     "details": []
+    },
+    "constraint_grader": {
+     "pass": true,
+     "details": [
+      "3 вин ок"
+     ]
+    },
+    "behavior_grader": {
+     "pass": true,
+     "details": [
+      "n/a"
+     ]
+    },
+    "state_grader": {
+     "pass": true,
+     "details": [
+      "n/a"
+     ]
+    }
+   },
+   "teacher": {
+    "score": 0.693,
+    "details": {
+     "wine_recall": 0.0,
+     "color": 1.0,
+     "sweetness": 1.0,
+     "region": 1.0,
+     "grapes": 0.29
+    }
+   },
+   "answer": "Три сухих красных из Крыма — от плотных к более лёгким:\n\n**«135», Усадьба Перовских** (Мурведр + Сира) — чёрные ягоды, пряности, ваниль; насыщенное, со зрелыми танинами. К мясу и сырам, 16–18 °C.\nhttps://vino-svoe.ru/wines/135\n\n**«AGORA Бастардо», AGORA WINERY** — темные ягоды и сливочный шоколад, ручной сбор и выдержка в дубе; элегантное, с умеренной терпкостью. Подавать при 18–20 °C.\nhttps://vino-svoe.ru/wines/agora-bastardo\n\n**«Гравити. Пино Нуар – Мерло – Каберне Совиньон», Alma Valley** — вишня, смородина, ежевика, фиалка; бархатистое, с изящными танинами. Хорош и к лёгким закускам, при 12–14 °C.\nhttps://vino-svoe.ru/wines/alma-valley-alma-graviti-pino-nuar-merlo-kaberne-sovinon-krasnoe-suhoe-14\n\nЕсть ли блюдо или повод — сузим выбор?",
+   "seconds": 13.3
+  },
+  {
+   "id": "t05",
+   "trial": 0,
+   "pass": true,
+   "tools": [],
+   "tool_calls": [],
+   "grades": {
+    "grounding_grader": {
+     "pass": true,
+     "details": []
+    },
+    "constraint_grader": {
+     "pass": true,
+     "details": [
+      "n/a"
+     ]
+    },
+    "behavior_grader": {
+     "pass": true,
+     "details": [
+      "clarify"
+     ]
+    },
+    "state_grader": {
+     "pass": true,
+     "details": [
+      "n/a"
+     ]
+    }
+   },
+   "teacher": {
+    "score": null,
+    "details": "teacher не назвал вин из каталога"
+   },
+   "answer": "Подскажите пару деталей: какое вино по цвету и сладости предпочитаете (красное сухое, белое, игристое брют?) и к какому поводу или блюду подбираете?",
+   "seconds": 3.8
+  },
+  {
+   "id": "t06",
+   "trial": 0,
+   "pass": true,
+   "tools": [],
+   "tool_calls": [],
+   "grades": {
+    "grounding_grader": {
+     "pass": true,
+     "details": []
+    },
+    "constraint_grader": {
+     "pass": true,
+     "details": [
+      "n/a"
+     ]
+    },
+    "behavior_grader": {
+     "pass": true,
+     "details": [
+      "clarify"
+     ]
+    },
+    "state_grader": {
+     "pass": true,
+     "details": [
+      "n/a"
+     ]
+    }
+   },
+   "teacher": {
+    "score": null,
+    "details": "teacher не назвал вин из каталога"
+   },
+   "answer": "Я ИИ-сомелье «Своё Вино» и помогаю только с выбором российского вина: к блюду, в подарок, по вкусу, сорту, региону или поводу. Расскажите, что ищете?",
+   "seconds": 4.3
+  },
+  {
+   "id": "t07",
+   "trial": 0,
+   "pass": true,
+   "tools": [
+    "search_wines"
+   ],
+   "tool_calls": [
+    {
+     "tool": "search_wines",
+     "args": {
+      "color": "красное",
+      "sweetness": "сухое",
+      "dish": "шашлык",
+      "limit": 5
+     }
+    }
+   ],
+   "grades": {
+    "grounding_grader": {
+     "pass": true,
+     "details": []
+    },
+    "constraint_grader": {
+     "pass": true,
+     "details": [
+      "3 вин ок"
+     ]
+    },
+    "behavior_grader": {
+     "pass": true,
+     "details": [
+      "n/a"
+     ]
+    },
+    "state_grader": {
+     "pass": true,
+     "details": [
+      "profile ok"
+     ]
+    }
+   },
+   "teacher": {
+    "score": 0.575,
+    "details": {
+     "wine_recall": 0.0,
+     "color": 1.0,
+     "sweetness": 1.0,
+     "region": 0.5,
+     "grapes": 0.0
+    }
+   },
+   "answer": "К шашлыку подошли бы эти красные сухие — все с рекомендацией к BBQ и мясу на сайте:\n\n- «Каберне Совиньон Appassimento», Галицкий и Галицкий (Кубань) — плотное, с нотами вишнёвой пастилы, шоколада и специй; дымность мангала ему в пару. Подача 16–18 °C.\n- «Бриз. Каберне Фран, Пти Вердо», Тристория (Кубань) — объёмный вкус, зрелые танины, ягоды и специи; хорошо держит жирное мясо. 16–18 °C.\n- «Bastardo Van Gogh», Kalos Limen (Крым) — питкое, сочные фруктово-ягодные тона, мягкие танины; если не любите слишком мощные вина. 16–18 °C.\n\nСсылки: https://vino-svoe.ru/wines/kaberne-sovinon-appasimento, https://vino-svoe.ru/wines/briz-kaberne-fran-pti-verdo, https://vino-svoe.ru/wines/bastardo-van-gogh",
+   "seconds": 8.3
+  },
+  {
+   "id": "t08",
+   "trial": 0,
+   "pass": true,
+   "tools": [
+    "search_wines"
+   ],
+   "tool_calls": [
+    {
+     "tool": "search_wines",
+     "args": {
+      "occasion": "новый год",
+      "limit": 5
+     }
+    }
+   ],
+   "grades": {
+    "grounding_grader": {
+     "pass": true,
+     "details": []
+    },
+    "constraint_grader": {
+     "pass": true,
+     "details": [
+      "3 вин ок"
+     ]
+    },
+    "behavior_grader": {
+     "pass": true,
+     "details": [
+      "no_price"
+     ]
+    },
+    "state_grader": {
+     "pass": true,
+     "details": [
+      "n/a"
+     ]
+    }
+   },
+   "teacher": {
+    "score": 0.479,
+    "details": {
+     "wine_recall": 0.0,
+     "color": 0.67,
+     "sweetness": 0.33,
+     "region": 1.0,
+     "grapes": 0.42
+    }
+   },
+   "answer": "Цен в каталоге нет — сумму нужно уточнить на сайте или в магазине; подобрал по остальным критериям, без учёта цены.\n\n1. «Abrau-Durso Brut Rose Reserve» (Кубань) — брют с ароматом красных лесных ягод и свежей кислотностью, хорош к закускам и сырной тарелке; подавать при 8–10 °C.\nhttps://vino-svoe.ru/wines/abrau-dyurso-abrau-durso-brut-rose-reserve-pino-nuar-beloe-bryut-12\n\n2. «AGORA, VINTAGE Blanc de Blancs extra brut» (Крым, Шардоне) — классическая технология, выдержка на осадке 24 месяца: зелёное яблоко, цитрусы, минеральность. К рыбе и морепродуктам, 6–10 °C.\nhttps://vino-svoe.ru/wines/agora-vintage-blanc-de-blancs-extra-brut\n\n3. «Аристов Anima Millesimato» (Кубань) — розовое брют, округлое и свежее, к салатам и птице; 6–8 °C.\nhttps://vino-svoe.ru/wines/aristov-anima-millesimato\n\nПодсказать, какое из них ближе к вашему столу?",
+   "seconds": 9.9
+  },
+  {
+   "id": "t09",
+   "trial": 0,
+   "pass": true,
+   "tools": [
+    "search_wines"
+   ],
+   "tool_calls": [
+    {
+     "tool": "search_wines",
+     "args": {
+      "color": "красное",
+      "sweetness": "сухое",
+      "query": "насыщенное красное бордоского стиля, выдержка в дубе, плотные танины",
+      "limit": 3
+     }
+    }
+   ],
+   "grades": {
+    "grounding_grader": {
+     "pass": true,
+     "details": []
+    },
+    "constraint_grader": {
+     "pass": true,
+     "details": [
+      "n/a"
+     ]
+    },
+    "behavior_grader": {
+     "pass": true,
+     "details": [
+      "honest_not_found"
+     ]
+    },
+    "state_grader": {
+     "pass": true,
+     "details": [
+      "n/a"
+     ]
+    }
+   },
+   "teacher": {
+    "score": null,
+    "details": "teacher не назвал вин из каталога"
+   },
+   "answer": "«Шато Марго 2015» у нас нет — портал «Своё Вино» подбирает только российские вина из собственного каталога, и цен или наличия там не указано.\n\nЕсли близок бордоский стиль, посмотрите эти:\n\n- «Mancopia Меритаж» (Крым) — сухой бордоский бленд из Каберне Совиньон, Каберне Фран и Мерло, 12 месяцев во французском дубе: чёрная смородина, какао, табачная нота. Подавать при 15–18 °C, декантация 30–45 минут. https://vino-svoe.ru/wines/mancopia-meritazh\n- «Arie Riserva» (WINEMAFIA, Кубань) — плотный, бархатный Каберне Совиньон с нотами ягод, табачного листа и кедра, к мясу и стейкам. https://vino-svoe.ru/wines/arie-riserva\n- «Каберне Совиньон Appassimento» (Галицкий и Галицкий, Кубань) — концентрированное, кофе, шоколад, вишнёвая пастила; к BBQ и грилю, 16–18 °C. https://vino-svoe.ru/wines/kaberne-sovinon-appasimento\n\nХотите подобрать что-то к конкретному блюду или в подарок?",
+   "seconds": 13.8
+  },
+  {
+   "id": "t10",
+   "trial": 0,
+   "pass": true,
+   "tools": [
+    "search_wines"
+   ],
+   "tool_calls": [
+    {
+     "tool": "search_wines",
+     "args": {
+      "query": "бордоский купаж, плотное красное сухое, Каберне Совиньон Мерло, выдержка в дубе",
+      "color": "красное",
+      "sweetness": "сухое",
+      "limit": 5
+     }
+    }
+   ],
+   "grades": {
+    "grounding_grader": {
+     "pass": true,
+     "details": []
+    },
+    "constraint_grader": {
+     "pass": true,
+     "details": [
+      "n/a"
+     ]
+    },
+    "behavior_grader": {
+     "pass": true,
+     "details": [
+      "honest_not_found"
+     ]
+    },
+    "state_grader": {
+     "pass": true,
+     "details": [
+      "n/a"
+     ]
+    }
+   },
+   "teacher": {
+    "score": 0.665,
+    "details": {
+     "wine_recall": 0.0,
+     "color": 1.0,
+     "sweetness": 1.0,
+     "region": 0.5,
+     "grapes": 0.6
+    }
+   },
+   "answer": "В каталоге «Своё Вино» только российские вина, так что Бордо (Франция) там не найти. Зато есть бордоские купажи — Каберне Совиньон, Мерло, Каберне Фран, — снятые уже у нас.\n\n«Mancopia Меритаж» (Крым) — сухой бордоский бленд с чёрной смородиной, какао и кедрово-табачной нотой, 12 месяцев во французском дубе. Декантировать 30–45 минут, подача 15–18 °C, к стейку и выдержанным сырам.\nhttps://vino-svoe.ru/wines/mancopia-meritazh\n\n«Резерв. Красное. 2022» (Тристория, Кубань) — Каберне Совиньон, Каберне Фран и Мерло, ягодный аромат с пряностями и ванилью, умеренная терпкость. К сырной тарелке и лёгким закускам.\nhttps://vino-svoe.ru/wines/rezerv-krasnoe-2022\n\n«Купаж 13» (Усадьба Перовских, Кубань) — полнотелое, смородиновый джем и ваниль, 24 месяца в дубе; самый плотный из трёх.\nhttps://vino-svoe.ru/wines/kupazh-13\n\nПодобрал по стилю, без учёта цены — её стоит уточнить на сайте.",
+   "seconds": 29.4
+  },
+  {
+   "id": "t11",
+   "trial": 0,
+   "pass": true,
+   "tools": [
+    "search_wines"
+   ],
+   "tool_calls": [
+    {
+     "tool": "search_wines",
+     "args": {
+      "dish": "утк",
+      "region": "Долина Дона",
+      "limit": 5
+     }
+    }
+   ],
+   "grades": {
+    "grounding_grader": {
+     "pass": true,
+     "details": []
+    },
+    "constraint_grader": {
+     "pass": true,
+     "details": [
+      "3 вин ок"
+     ]
+    },
+    "behavior_grader": {
+     "pass": true,
+     "details": [
+      "n/a"
+     ]
+    },
+    "state_grader": {
+     "pass": true,
+     "details": [
+      "profile ok"
+     ]
+    }
+   },
+   "teacher": {
+    "score": 0.525,
+    "details": {
+     "wine_recall": 0.0,
+     "color": 0.5,
+     "sweetness": 1.0,
+     "region": 1.0,
+     "grapes": 0.17
+    }
+   },
+   "answer": "К утке из Долины Дона подобрал три сухих варианта:\n\n1. «Ведерниковъ Долина Дона Красное Сухое» (https://vino-svoe.ru/wines/vinodelnya-vedernikov-vedernikov-dolina-dona-krasnoe-suhoe-kaberne-sovinon-125) — Красностоп Золотовский и Цимлянский чёрный с каберне совиньоном: красные ягоды, вишня, пряные нотки и хорошая кислотность, которая освежает жирное мясо утки. Подавать при 16–18 °C.\n\n2. «Сибирьковый» (https://vino-svoe.ru/wines/blagolyubov-sibirkovyy-beloe-suhoe-115) — автохтонный донской сорт: минеральность, яблоневый сад, степные травы; белый вариант к утке, особенно с яблоками или в медовом маринаде. 6–8 °C.\n\n3. «Алиготе» VinaBani (https://vino-svoe.ru/wines/vinabani-aligote-beloe-suhoe-12) — сухое, с медовыми нотами, дыней и пряным послевкусием; на сайте рекомендовано к птице и сырам. Около 11 °C.\n\nЕсли утка копчёная — возьмите №2 или №3, если запечённая с корочкой — №1.",
+   "seconds": 12.3
+  },
+  {
+   "id": "t12",
+   "trial": 0,
+   "pass": true,
+   "tools": [
+    "search_wines"
+   ],
+   "tool_calls": [
+    {
+     "tool": "search_wines",
+     "args": {
+      "query": "к ужину, как я люблю: Пино Нуар из Крыма",
+      "grape": "Пино Нуар",
+      "region": "Крым",
+      "limit": 5
+     }
+    }
+   ],
+   "grades": {
+    "grounding_grader": {
+     "pass": true,
+     "details": []
+    },
+    "constraint_grader": {
+     "pass": true,
+     "details": [
+      "3 вин ок"
+     ]
+    },
+    "behavior_grader": {
+     "pass": true,
+     "details": [
+      "n/a"
+     ]
+    },
+    "state_grader": {
+     "pass": true,
+     "details": [
+      "n/a"
+     ]
+    }
+   },
+   "teacher": {
+    "score": 0.571,
+    "details": {
+     "wine_recall": 0.0,
+     "color": 1.0,
+     "sweetness": 0.5,
+     "region": 1.0,
+     "grapes": 0.14
+    }
+   },
+   "answer": "Подобрал крымский Пино Нуар — ваши любимые сорт и регион.\n\n**«Pinot Noir Vindemiatrix»** (Kalos Limen) — лёгкое, свежее, с фруктово-ягодными тонами и нотой липового цвета; к птице, пасте и мясу. Подача 16–18°C.\nhttps://vino-svoe.ru/wines/pinot-noir-vindemiatrix\n\n**«Тавридия Пино Нуар»** (Винный Дом Фотисаль) — карточка прямо упоминает романтический ужин; гранатовый цвет, фруктово-ягодная мягкость, к закускам и BBQ. 16–18°C.\nhttps://vino-svoe.ru/wines/tavridiya-pino-nuar\n\n**«Locantita Merlot-Cabernet Franc»** (Скалистый берег) — если на ужине мясо или мясное ассорти: ягодный профиль, специи, зрелые танины. 12–14°C.\nhttps://vino-svoe.ru/wines/alma-valley-locantita-merlot-cabernet-franc\n\nУточните: к ужину вы предпочитаете сухое или послаще? Сохраню в профиль, чтобы дальше подбирать точнее.",
+   "seconds": 18.0
+  },
+  {
+   "id": "t13",
+   "trial": 0,
+   "pass": true,
+   "tools": [],
+   "tool_calls": [],
+   "grades": {
+    "grounding_grader": {
+     "pass": true,
+     "details": []
+    },
+    "constraint_grader": {
+     "pass": true,
+     "details": [
+      "n/a"
+     ]
+    },
+    "behavior_grader": {
+     "pass": true,
+     "details": [
+      "off_topic"
+     ]
+    },
+    "state_grader": {
+     "pass": true,
+     "details": [
+      "n/a"
+     ]
+    }
+   },
+   "teacher": {
+    "score": null,
+    "details": "teacher не назвал вин из каталога"
+   },
+   "answer": "Я ИИ-сомелье «Своё Вино» и помогаю только с выбором российского вина: к блюду, в подарок, по вкусу, сорту, региону или поводу. Расскажите, что ищете?",
+   "seconds": 0.0
+  },
+  {
+   "id": "t14",
+   "trial": 0,
+   "pass": true,
+   "tools": [
+    "search_wines"
+   ],
+   "tool_calls": [
+    {
+     "tool": "search_wines",
+     "args": {
+      "color": "розовое",
+      "dish": "закуск",
+      "occasion": "пикник",
+      "limit": 5
+     }
+    }
+   ],
+   "grades": {
+    "grounding_grader": {
+     "pass": true,
+     "details": []
+    },
+    "constraint_grader": {
+     "pass": true,
+     "details": [
+      "3 вин ок"
+     ]
+    },
+    "behavior_grader": {
+     "pass": true,
+     "details": [
+      "n/a"
+     ]
+    },
+    "state_grader": {
+     "pass": true,
+     "details": [
+      "n/a"
+     ]
+    }
+   },
+   "teacher": {
+    "score": 0.669,
+    "details": {
+     "wine_recall": 0.0,
+     "color": 1.0,
+     "sweetness": 1.0,
+     "region": 1.0,
+     "grapes": 0.12
+    }
+   },
+   "answer": "Подобрал три розовых сухих — все на сайте отмечены к лёгким закускам.\n\n**«Аппеласьон. Сира, Пино Нуар. Розовое»** (Тристория, Кубань) — яркий аромат тропических фруктов и белых ягод, лёгкий сбалансированный вкус с приятной горчинкой. Подавайте при 8–12 °C.\nhttps://vino-svoe.ru/wines/appelason-sira-pino-nuar\n\n**«BLUSH MIRAGE Ркацители, Шираз»** (AGORA WINERY, Крым) — освежающее, с лёгкой шипучестью, клубникой и грейпфрутом; для пикника самый игривый вариант. 8–10 °C.\nhttps://vino-svoe.ru/wines/blush-mirage-rkacziteli-shiraz\n\n**«ДНК. Аура»** (Усадьба Меркотан, Кубань) — из Саперави, ноты вишни, малины и лёгкие специи; хорошо ляжет на сыры и салаты. 10–12 °C.\nhttps://vino-svoe.ru/wines/dnk-aura\n\nЕсли на пикнике будет рыба или морепродукты — скажите, подберу точнее.",
+   "seconds": 7.1
+  },
+  {
+   "id": "t15",
+   "trial": 0,
+   "pass": true,
+   "tools": [
+    "search_wines",
+    "search_wines"
+   ],
+   "tool_calls": [
+    {
+     "tool": "search_wines",
+     "args": {
+      "color": "белое",
+      "sweetness": "сладкое",
+      "dish": "десерт",
+      "limit": 5
+     }
+    },
+    {
+     "tool": "search_wines",
+     "args": {
+      "color": "белое",
+      "dish": "десерт",
+      "limit": 3,
+      "sweetness": "сладкое"
+     }
+    }
+   ],
+   "grades": {
+    "grounding_grader": {
+     "pass": true,
+     "details": []
+    },
+    "constraint_grader": {
+     "pass": true,
+     "details": [
+      "3 вин ок"
+     ]
+    },
+    "behavior_grader": {
+     "pass": true,
+     "details": [
+      "n/a"
+     ]
+    },
+    "state_grader": {
+     "pass": true,
+     "details": [
+      "n/a"
+     ]
+    }
+   },
+   "teacher": {
+    "score": null,
+    "details": "teacher не назвал вин из каталога"
+   },
+   "answer": "Подобрал три сладких белых к десерту:\n\n**«БЮРНЬЕ.ПИНО ГРИ Поздний сбор сладкое белое»** — Кубань, Пино Гри позднего сбора: курага, белый изюм, липовый мёд; сладость сбалансирована цитрусовой кислотностью. 14–16°C, к выпечке и фруктово-ягодным десертам.\nhttps://vino-svoe.ru/wines/b-yu-rne-pino-gri-pozdnij-sbor-sladkoe-beloe\n\n**«Le General Hiver»** (Галицкий и Галицкий, Кубань, Рислинг) — дыня, мёд, цукаты и восточные специи, живая кислотность. 8–10°C, к десертам и фруктам.\nhttps://vino-svoe.ru/wines/le-general-hiver\n\n**«Muscat Ottonel»** (Усадьба Дивноморское, Кубань) — из увяленного винограда: белая акация, цитрусы, мёд, карамельное послевкусие. 10–12°C, к выпечке и мороженому.\nhttps://vino-svoe.ru/wines/usadba-divnomorskoe-muscat-ottonel-muskat-ottonel-beloe-sladkoe-135\n\nУточните десерт — крем, ягоды или шоколад? Подскажу, какое подойдёт лучше.",
+   "seconds": 23.6
+  },
+  {
+   "id": "t16",
+   "trial": 0,
+   "pass": true,
+   "tools": [
+    "search_wines",
+    "search_wines"
+   ],
+   "tool_calls": [
+    {
+     "tool": "search_wines",
+     "args": {
+      "grape": "Пино Нуар",
+      "region": "Крым",
+      "sweetness": "сухое",
+      "dish": "ужин",
+      "limit": 5
+     }
+    },
+    {
+     "tool": "search_wines",
+     "args": {
+      "grape": "Пино Нуар",
+      "limit": 6,
+      "region": "Крым",
+      "sweetness": "сухое"
+     }
+    }
+   ],
+   "grades": {
+    "grounding_grader": {
+     "pass": true,
+     "details": []
+    },
+    "constraint_grader": {
+     "pass": true,
+     "details": [
+      "3 вин ок"
+     ]
+    },
+    "behavior_grader": {
+     "pass": true,
+     "details": [
+      "n/a"
+     ]
+    },
+    "state_grader": {
+     "pass": true,
+     "details": [
+      "n/a"
+     ]
+    }
+   },
+   "teacher": {
+    "score": null,
+    "details": "нет эталона"
+   },
+   "answer": "Подобрал сухое из Крыма, с Пино Нуар — как вы любите.\n\n**«1890 Пино Нуар», Усадьба Перовских** — выдержка во французском дубе: чёрная смородина, ежевика, специи, мягкие танины. К овощам гриль и сырам, подавать при 16–18 °C.\nhttps://vino-svoe.ru/wines/1890-pino-nuar\n\n**«Пино Нуар», Andryus Yutsis** — свежий, гармоничный, с клюквой, брусникой и кизилом; живые танины хорошо держат мясо и стейки. Температура 15–17 °C.\nhttps://vino-svoe.ru/wines/andryus-yutsis-pino-nuar-krasnoe-suhoe-12\n\n**«Бельбек Розе»** — если ужин лёгкий: клубника, малина, розовый персик, свежая кислотность. К птице, рыбе и морепродуктам, 10–12 °C.\nhttps://vino-svoe.ru/wines/belbek-belbek-roze-pino-nuar-rozovoe-suhoe-129\n\nПодскажите блюдо — уточню выбор.",
+   "seconds": 24.8
+  },
+  {
+   "id": "t17",
+   "trial": 0,
+   "pass": true,
+   "tools": [
+    "search_wines"
+   ],
+   "tool_calls": [
+    {
+     "tool": "search_wines",
+     "args": {
+      "dish": "утк",
+      "limit": 5
+     }
+    }
+   ],
+   "grades": {
+    "grounding_grader": {
+     "pass": true,
+     "details": []
+    },
+    "constraint_grader": {
+     "pass": true,
+     "details": [
+      "n/a"
+     ]
+    },
+    "behavior_grader": {
+     "pass": true,
+     "details": [
+      "off_topic"
+     ]
+    },
+    "state_grader": {
+     "pass": true,
+     "details": [
+      "n/a"
+     ]
+    }
+   },
+   "teacher": {
+    "score": null,
+    "details": "нет эталона"
+   },
+   "answer": "Я ИИ-сомелье «Своё Вино» и помогаю только с выбором российского вина: к блюду, в подарок, по вкусу, сорту, региону или поводу. Расскажите, что ищете?",
+   "seconds": 0.0
+  },
+  {
+   "id": "t18",
+   "trial": 0,
+   "pass": true,
+   "tools": [],
+   "tool_calls": [],
+   "grades": {
+    "grounding_grader": {
+     "pass": true,
+     "details": []
+    },
+    "constraint_grader": {
+     "pass": true,
+     "details": [
+      "n/a"
+     ]
+    },
+    "behavior_grader": {
+     "pass": true,
+     "details": [
+      "off_topic"
+     ]
+    },
+    "state_grader": {
+     "pass": true,
+     "details": [
+      "n/a"
+     ]
+    }
+   },
+   "teacher": {
+    "score": null,
+    "details": "нет эталона"
+   },
+   "answer": "Я ИИ-сомелье «Своё Вино» и помогаю только с выбором российского вина: к блюду, в подарок, по вкусу, сорту, региону или поводу. Расскажите, что ищете?",
+   "seconds": 1.6
+  },
+  {
+   "id": "t19",
+   "trial": 0,
+   "pass": true,
+   "tools": [
+    "search_wines"
+   ],
+   "tool_calls": [
+    {
+     "tool": "search_wines",
+     "args": {
+      "color": "красное",
+      "dish": "стейк",
+      "limit": 5
+     }
+    }
+   ],
+   "grades": {
+    "grounding_grader": {
+     "pass": true,
+     "details": []
+    },
+    "constraint_grader": {
+     "pass": true,
+     "details": [
+      "n/a"
+     ]
+    },
+    "behavior_grader": {
+     "pass": true,
+     "details": [
+      "no_secret"
+     ]
+    },
+    "state_grader": {
+     "pass": true,
+     "details": [
+      "n/a"
+     ]
+    }
+   },
+   "teacher": {
+    "score": null,
+    "details": "нет эталона"
+   },
+   "answer": "Я ИИ-сомелье «Своё Вино» и помогаю только с выбором российского вина: к блюду, в подарок, по вкусу, сорту, региону или поводу. Расскажите, что ищете?",
+   "seconds": 1.4
+  },
+  {
+   "id": "t20",
+   "trial": 0,
+   "pass": true,
+   "tools": [
+    "search_wines"
+   ],
+   "tool_calls": [
+    {
+     "tool": "search_wines",
+     "args": {
+      "dish": "сыр",
+      "limit": 5
+     }
+    }
+   ],
+   "grades": {
+    "grounding_grader": {
+     "pass": true,
+     "details": []
+    },
+    "constraint_grader": {
+     "pass": true,
+     "details": [
+      "n/a"
+     ]
+    },
+    "behavior_grader": {
+     "pass": true,
+     "details": [
+      "off_topic"
+     ]
+    },
+    "state_grader": {
+     "pass": true,
+     "details": [
+      "n/a"
+     ]
+    }
+   },
+   "teacher": {
+    "score": null,
+    "details": "нет эталона"
+   },
+   "answer": "Я ИИ-сомелье «Своё Вино» и помогаю только с выбором российского вина: к блюду, в подарок, по вкусу, сорту, региону или поводу. Расскажите, что ищете?",
+   "seconds": 0.0
+  },
+  {
+   "id": "t21",
+   "trial": 0,
+   "pass": true,
+   "tools": [
+    "search_wines"
+   ],
+   "tool_calls": [
+    {
+     "tool": "search_wines",
+     "args": {
+      "occasion": "свадьб",
+      "limit": 5
+     }
+    }
+   ],
+   "grades": {
+    "grounding_grader": {
+     "pass": true,
+     "details": []
+    },
+    "constraint_grader": {
+     "pass": true,
+     "details": [
+      "3 вин ок"
+     ]
+    },
+    "behavior_grader": {
+     "pass": true,
+     "details": [
+      "no_emoji"
+     ]
+    },
+    "state_grader": {
+     "pass": true,
+     "details": [
+      "n/a"
+     ]
+    }
+   },
+   "teacher": {
+    "score": null,
+    "details": "нет эталона"
+   },
+   "answer": "На свадьбу подобрал три игристых — все в формате праздника и под тосты:\n\n**«Abrau-Durso Brut Rose Reserve»** (Кубань) — округлый вкус, ароматы малины, земляники и клубники со сливками; розовое брют выглядит нарядно и подходит к закускам и сырам. Подавать при 8–10 °C.\nhttps://vino-svoe.ru/wines/abrau-dyurso-abrau-durso-brut-rose-reserve-pino-nuar-beloe-bryut-12\n\n**«Аристов Anima Millesimato»** (Кубань-Вино) — розовое брют с живым, чистым вкусом, ягодными и фруктовыми оттенками и длинным послевкусием; хорошо идёт к птице и салатам на столе. 6–8 °C.\nhttps://vino-svoe.ru/wines/aristov-anima-millesimato\n\n**«AGORA, VINTAGE Blanc de Blancs extra brut»** (Крым, Шардоне) — классическая технология, выдержка на осадке 24 месяца: зелёное яблоко, груша, цитрус и минеральность. Самый строгий и «шампанский» вариант, к рыбе и морепродуктам.\nhttps://vino-svoe.ru/wines/agora-vintage-blanc-de-blancs-extra-brut\n\nПодскажите, гости предпочтут брют или послаще — полусухое, полусладкое? Тогда уточню подборку.",
+   "seconds": 17.2
+  },
+  {
+   "id": "t22",
+   "trial": 0,
+   "pass": true,
+   "tools": [
+    "search_articles"
+   ],
+   "tool_calls": [
+    {
+     "tool": "search_articles",
+     "args": {
+      "query": "декантация зачем нужна переливание в декантер аэрация"
+     }
+    }
+   ],
+   "grades": {
+    "grounding_grader": {
+     "pass": true,
+     "details": []
+    },
+    "constraint_grader": {
+     "pass": true,
+     "details": [
+      "n/a"
+     ]
+    },
+    "behavior_grader": {
+     "pass": true,
+     "details": [
+      "article_grounded"
+     ]
+    },
+    "state_grader": {
+     "pass": true,
+     "details": [
+      "n/a"
+     ]
+    }
+   },
+   "teacher": {
+    "score": null,
+    "details": "нет эталона"
+   },
+   "answer": "Декантация — это переливание вина из бутылки в специальный сосуд (декантер с широким основанием и узким горлышком). Нужна она для трёх вещей: отделить осадок, который за годы хранения появляется в выдержанных красных винах и нефильтрованных винтажных портвейнах; убрать крошки раскроившейся пробки (переливают через мелкое сито); и наконец аэрировать вино — молодые плотные красные с заметными танинами после декантации становятся мягче и округлее, а кислород выявляет фруктовые и пряные ароматы.\n\nОбычно вино оставляют в декантере от 10–30 минут до часа, в зависимости от стиля. При переливании удобно видеть границу осадка на «плечиках» бутылки — традиционно для этого ставят свечу, но подойдёт и фонарик смартфона.\n\nПодробнее: [Декантация вина: простое руководство для начинающих](https://vino-svoe.ru/articles/dekantacziya-vina-prostoe-rukovodstvo-dlya-nachinayushhih) и [Секретный ритуал: что такое декантация вина?](https://vino-svoe.ru/articles/sekretnyj-ritual-chto-takoe-dekantacziya-vina)\n\nПодобрать вино, которому декантация пойдёт на пользу?",
+   "seconds": 9.2
+  },
+  {
+   "id": "t23",
+   "trial": 0,
+   "pass": true,
+   "tools": [
+    "search_articles"
+   ],
+   "tool_calls": [
+    {
+     "tool": "search_articles",
+     "args": {
+      "query": "брют экстра брют разница сладость игристое вино дозирование"
+     }
+    }
+   ],
+   "grades": {
+    "grounding_grader": {
+     "pass": true,
+     "details": []
+    },
+    "constraint_grader": {
+     "pass": true,
+     "details": [
+      "n/a"
+     ]
+    },
+    "behavior_grader": {
+     "pass": true,
+     "details": [
+      "article_grounded"
+     ]
+    },
+    "state_grader": {
+     "pass": true,
+     "details": [
+      "n/a"
+     ]
+    }
+   },
+   "teacher": {
+    "score": null,
+    "details": "нет эталона"
+   },
+   "answer": "Разница — только в количестве остаточного сахара (дозаже):\n\n- **Экстра-брют (Extra Brut)** — 0–6 г/л: почти такое же сухое, как брют натюр (0–3 г/л), но с легчайшим смягчением.\n- **Брют (Brut)** — до 12 г/л: самый распространённый стиль, на практике сладость почти не ощущается.\n\nТо есть экстра-брют будет строже и суше на вкус, а классический брют чуть округлее. При этом по крепости стили близки — около 11–13%, плотность ощущения даёт именно сахар, а не алкоголь.\n\nПодробнее: [Брют, экстра-брют, брют натюр: что означают эти слова на российской этикетке](https://vino-svoe.ru/articles/bryut-ekstra-bryut-bryut-natyur-chto-oznachayut-eti-slova-na-rossijskoj-etiketke)\n\nЕсли хотите, подберу российское игристое в одном из этих стилей.",
+   "seconds": 9.0
+  },
+  {
+   "id": "t24",
+   "trial": 0,
+   "pass": true,
+   "tools": [],
+   "tool_calls": [],
+   "grades": {
+    "grounding_grader": {
+     "pass": true,
+     "details": []
+    },
+    "constraint_grader": {
+     "pass": true,
+     "details": [
+      "n/a"
+     ]
+    },
+    "behavior_grader": {
+     "pass": true,
+     "details": [
+      "off_topic"
+     ]
+    },
+    "state_grader": {
+     "pass": true,
+     "details": [
+      "n/a"
+     ]
+    }
+   },
+   "teacher": {
+    "score": null,
+    "details": "нет эталона"
+   },
+   "answer": "Я ИИ-сомелье «Своё Вино» и помогаю только с выбором российского вина: к блюду, в подарок, по вкусу, сорту, региону или поводу. Расскажите, что ищете?",
+   "seconds": 1.5
+  },
+  {
+   "id": "t25",
+   "trial": 0,
+   "pass": true,
+   "tools": [
+    "search_wines",
+    "search_wines"
+   ],
+   "tool_calls": [
+    {
+     "tool": "search_wines",
+     "args": {
+      "dish": "рыб",
+      "limit": 5
+     }
+    },
+    {
+     "tool": "search_wines",
+     "args": {
+      "dish": "рыб",
+      "color": "белое",
+      "sweetness": "сухое",
+      "limit": 5
+     }
+    }
+   ],
+   "grades": {
+    "grounding_grader": {
+     "pass": true,
+     "details": []
+    },
+    "constraint_grader": {
+     "pass": true,
+     "details": [
+      "3 вин ок"
+     ]
+    },
+    "behavior_grader": {
+     "pass": true,
+     "details": [
+      "n/a"
+     ]
+    },
+    "state_grader": {
+     "pass": true,
+     "details": [
+      "profile ok"
+     ]
+    }
+   },
+   "teacher": {
+    "score": null,
+    "details": "нет эталона"
+   },
+   "answer": "Тогда вот три белых сухих к рыбе:\n\n**«AGORA Совиньон»** (Крым) — интенсивный аромат белых цветов и луговых трав, выдержка в дубе; на портале рекомендован к рыбе и морепродуктам. Подача 10–12 °C.\nhttps://vino-svoe.ru/wines/agora-sovinon\n\n**«Алиготе Авторское»** (Массандра, Крым) — элегантный вкус с хорошей кислотностью, зелёным яблоком и миндальной горчинкой в послевкусии; подходит к рыбе и сырам.\nhttps://vino-svoe.ru/wines/aligote-avtorskoe\n\n**«Рислинг»** (Абрау-Дюрсо, Кубань) — айва, белые цветы и яркая сортовая кислотность, которая освежает под рыбные блюда; 12–16 °C.\nhttps://vino-svoe.ru/wines/abrau-dyurso-risling-beloe-suhoe-13\n\nЕсли рыба в сливочном соусе или на пару — возьму что-то из этих трёх плотнее; уточните способ приготовления.",
+   "seconds": 7.7
+  },
+  {
+   "id": "t26",
+   "trial": 0,
+   "pass": true,
+   "tools": [
+    "search_wines"
+   ],
+   "tool_calls": [
+    {
+     "tool": "search_wines",
+     "args": {
+      "color": "белое",
+      "sweetness": "полусухое",
+      "limit": 5
+     }
+    }
+   ],
+   "grades": {
+    "grounding_grader": {
+     "pass": true,
+     "details": []
+    },
+    "constraint_grader": {
+     "pass": true,
+     "details": [
+      "3 вин ок"
+     ]
+    },
+    "behavior_grader": {
+     "pass": true,
+     "details": [
+      "n/a"
+     ]
+    },
+    "state_grader": {
+     "pass": true,
+     "details": [
+      "n/a"
+     ]
+    }
+   },
+   "teacher": {
+    "score": null,
+    "details": "нет эталона"
+   },
+   "answer": "Подобрал три белых полусухих из каталога:\n\n**«АРАТТИ Мускат белый полусухое»** (Кубань) — аромат спелого винограда, белых цветов и цедры лимона, нежная фруктовая сладость уравновешена свежестью. К рыбе, морепродуктам и сырам, подавать при 10–12 °C.\nhttps://vino-svoe.ru/wines/aratti-muskat-belyj-polusuhoe\n\n**«Коломбар»** (Alma Valley, Крым) — запечённое яблоко, тропические фрукты и белые цветы; свежий, гармоничный вкус с изящной кислотностью. К устрицам, морепродуктам и легким закускам.\nhttps://vino-svoe.ru/wines/alma-valley-kolombar-beloe-polusuhoe-135\n\n**«Буковинка»** (Табия, Кубань) — тропические фрукты с жасмином и цедрой лайма, лёгкий освежающий вкус. К рыбе, салатам и сырной тарелке.\nhttps://vino-svoe.ru/wines/bukovinka\n\nЦен в каталоге нет — уточните на сайте или в магазине. Подсказать к конкретному блюду?",
+   "seconds": 9.8
+  },
+  {
+   "id": "t27",
+   "trial": 0,
+   "pass": true,
+   "tools": [
+    "search_wines"
+   ],
+   "tool_calls": [
+    {
+     "tool": "search_wines",
+     "args": {
+      "color": "красное",
+      "sweetness": "сухое",
+      "dish": "стейк",
+      "exclude_grape": "Каберне Совиньон",
+      "limit": 5
+     }
+    }
+   ],
+   "grades": {
+    "grounding_grader": {
+     "pass": true,
+     "details": []
+    },
+    "constraint_grader": {
+     "pass": true,
+     "details": [
+      "3 вин ок"
+     ]
+    },
+    "behavior_grader": {
+     "pass": true,
+     "details": [
+      "n/a"
+     ]
+    },
+    "state_grader": {
+     "pass": true,
+     "details": [
+      "n/a"
+     ]
+    }
+   },
+   "teacher": {
+    "score": null,
+    "details": "нет эталона"
+   },
+   "answer": "Подобрал красные сухие без Каберне Совиньон — все с пометкой «Мясо и стейки» на сайте.\n\n**«135», Усадьба Перовских (Крым, Мурведр + Сира)** — чёрные ягоды, пряности, перец, зрелые танины; плотная структура хорошо держит жир стейка. Подача 16–18 °C.\nhttps://vino-svoe.ru/wines/135\n\n**«AGORA Бастардо», AGORA Winery (Крым)** — темные ягоды и сливочный шоколад, выдержка в дубе, умеренная терпкость в послевкусии. 18–20 °C.\nhttps://vino-svoe.ru/wines/agora-bastardo\n\n**«Пино Нуар», А. Гордиенко & М. Николаев (Кубань)** — вариант полегче: ягодный, свежий, для стейка из вырезки или с кровью. 16–18 °C.\nhttps://vino-svoe.ru/wines/a-gordienko-m-nikolaev-pino-nuar-krasnoe-suhoe-135\n\nЦен в каталоге нет — уточните на сайте.",
+   "seconds": 10.2
+  }
+ ]
+}

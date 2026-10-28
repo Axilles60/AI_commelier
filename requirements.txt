@@ -1,0 +1,9 @@
+# Python 3.10+. Версии, на которых проверены все тесты и замеры из README.
+langchain==1.4.7
+langchain-core==1.7.0
+langchain-openai==1.7.3
+langgraph==1.2.18
+openai==3.40.0
+pydantic==2.14.1
+requests==2.33.1
+pytest==9.0.2

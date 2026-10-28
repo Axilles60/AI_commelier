@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Своё Вино · ИИ-сомелье</title>
+<link rel="stylesheet" href="/style.css">
+<style>
+#log{flex:1;min-height:0;overflow:auto;padding:16px;display:flex;flex-direction:column;gap:12px}
+#log>*{flex-shrink:0}
+.msg{max-width:80%;padding:10px 14px;border-radius:14px;white-space:pre-wrap;word-wrap:break-word}
+.me{align-self:flex-end;background:var(--wine);color:#fff;border-bottom-right-radius:4px}
+.bot{align-self:flex-start;background:var(--panel);border:1px solid var(--line);border-bottom-left-radius:4px}
+.typing{color:var(--muted);font-style:italic}
+.cards{display:flex;gap:10px;overflow-x:auto;align-self:stretch;padding-bottom:4px}
+.card{min-width:230px;max-width:250px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:10px;font-size:13px}
+.card h4{margin:0 0 4px;font-size:14px}.card .m{color:var(--muted)}
+.card .act{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.card .act button.on{background:var(--wine);border-color:var(--wine);color:#fff}
+.chips{display:flex;gap:6px;flex-wrap:wrap;padding:0 16px 8px}
+.chips button{border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:999px;padding:6px 14px;cursor:pointer;font:inherit;font-size:13px}
+.chips button:hover{border-color:var(--wine)}
+form{display:flex;gap:8px;padding:12px 16px;border-top:1px solid var(--line)}
+input{flex:1;min-width:0;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--ink);font:inherit}
+input:disabled,form button:disabled,.chips button:disabled{opacity:.55;cursor:not-allowed}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="brand" href="/">Своё Вино</a><span class="sub">ИИ-сомелье по каталогу vino-svoe.ru</span>
+    <nav><button class="btn" id="new" type="button">Новый диалог</button><a class="btn" href="/profile">Профиль</a></nav>
+  </header>
+  <div id="log" role="log" aria-live="polite" aria-label="Диалог с сомелье"></div>
+  <div class="chips" id="chips">
+    <button>Подобрать вино к блюду</button><button>Выбрать вино в подарок</button><button>Подобрать вино по вкусу</button>
+    <button>Вино на праздник</button><button>Вино из определённого региона</button><button>Вино по сорту винограда</button>
+  </div>
+  <form id="f"><input id="q" placeholder="Напишите, что ищете" autocomplete="off" maxlength="1000" aria-label="Сообщение сомелье"><button class="btn primary">Отправить</button></form>
+</div>
+<script>
+const store = {get(k){try{return sessionStorage.getItem(k)}catch(e){return null}}, set(k,v){try{sessionStorage.setItem(k,v)}catch(e){}}};
+const uid = (()=>{try{let u=localStorage.getItem('uid');if(!u){u='u'+Math.random().toString(36).slice(2,9);localStorage.setItem('uid',u)}return u}catch(e){return 'guest'}})();
+const GREETING = 'Здравствуйте! Я подберу российское вино из каталога «Своё Вино»: к блюду, в подарок, по вкусу, сорту, региону или поводу. С чего начнём?';
+let thread = store.get('thread') || ('t'+Date.now());
+const log = document.getElementById('log');
+const esc = s => String(s).replace(/[&<>"]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+// ссылки только на vino-svoe.ru (вина и статьи портала): markdown [текст](url) и «голые» адреса
+const linkify = s => esc(s)
+  .replace(/\*\*([^*\n]+)\*\*/g,'<b>$1</b>')
+  .replace(/\[([^\]\n]+)\]\((https:\/\/vino-svoe\.ru\/(?:wines|articles)\/[\w-]+)\)/g,'<a href="$2" target="_blank" rel="noopener">$1</a>')
+  .replace(/(?<!["'>])(https:\/\/vino-svoe\.ru\/(?:wines|articles)\/[\w-]+)/g,'<a href="$1" target="_blank" rel="noopener">$1</a>');
+function save(){ store.set('thread', thread); store.set('log', log.innerHTML); }
+function add(cls, html){const d=document.createElement('div');d.className='msg '+cls;d.innerHTML=html;log.appendChild(d);log.scrollTop=1e9;return d}
+function reset(){ thread='t'+Date.now(); log.innerHTML=''; add('bot', esc(GREETING)); save(); }
+function cards(ws){ if(!ws||!ws.length) return; const c=document.createElement('div'); c.className='cards';
+  c.innerHTML = ws.map(w=>`<div class="card"><h4>${esc(w.title)}</h4><div class="m">${esc(w.category||'')} · ${esc(w.region||'')}</div>
+   <div class="m">${esc((w.grapes||[]).join(', '))}</div><div class="m">${esc(w.manufacturer||'')}</div>
+   <div class="act"><button class="btn small" data-v="saved" data-id="${esc(w.id)}">В избранное</button>
+   <button class="btn small" data-v="liked" data-id="${esc(w.id)}">Нравится</button>
+   <button class="btn small" data-v="disliked" data-id="${esc(w.id)}">Не нравится</button></div></div>`).join('');
+  log.appendChild(c); log.scrollTop=1e9; }
+log.addEventListener('click', async e=>{const b=e.target.closest('button[data-v]'); if(!b) return;
+  await fetch('/api/feedback',{method:'POST',body:JSON.stringify({user_id:uid,wine_id:b.dataset.id,verdict:b.dataset.v})});
+  const group = b.parentElement; if(b.dataset.v!=='saved') group.querySelectorAll('button[data-v="liked"],button[data-v="disliked"]').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on'); if(b.dataset.v==='saved') b.textContent='В избранном'; save(); });
+function show(j){ if(j.error){add('bot', esc(j.error)); return} add('bot', linkify(j.reply)); cards(j.wines); }
+// пока сомелье отвечает, ввод и кнопки неактивны: двойной Enter отправлял второй запрос в тот же диалог
+let busy=false;
+function setBusy(on){ busy=on; const q=document.getElementById('q'); q.disabled=on;
+  document.querySelectorAll('#f button, #chips button').forEach(b=>b.disabled=on); if(!on) q.focus(); }
+async function send(text){ if(busy) return; setBusy(true);
+  try{ await ask(text) } finally{ setBusy(false) } }
+async function ask(text){ add('me', esc(text)); const t=add('bot typing','Сомелье подбирает…');
+  const body=JSON.stringify({user_id:uid,thread_id:thread,message:text});
+  try{
+    // поток этапов (SSE): «Ищу в каталоге…», «Проверяю…»; сам ответ приходит целиком, уже проверенным
+    const r=await fetch('/api/chat/stream',{method:'POST',body});
+    if(!r.ok||!r.body) throw new Error('no stream');
+    const reader=r.body.getReader(), dec=new TextDecoder(); let buf='', done=false;
+    while(!done){ const chunk=await reader.read(); if(chunk.done) break; buf+=dec.decode(chunk.value,{stream:true});
+      let i; while((i=buf.indexOf('\n\n'))>=0){ const line=buf.slice(0,i); buf=buf.slice(i+2);
+        if(!line.startsWith('data: ')) continue; const j=JSON.parse(line.slice(6));
+        if(j.stage){ t.textContent=j.stage+'…'; continue }
+        t.remove(); show(j); done=true; } }
+    if(!done){ t.remove(); add('bot','Ответ прервался, попробуйте ещё раз.'); }
+  }catch(e){
+    try{ const r=await fetch('/api/chat',{method:'POST',body}); t.remove(); show(await r.json()); }
+    catch(e2){ t.remove(); add('bot','Сервер недоступен, попробуйте ещё раз.'); }
+  }
+  save(); }
+document.getElementById('f').onsubmit=e=>{e.preventDefault(); const q=document.getElementById('q'); if(q.value.trim()){send(q.value.trim()); q.value=''}};
+document.querySelectorAll('#chips button').forEach(b=>b.onclick=()=>send(b.textContent));
+document.getElementById('new').onclick=reset;
+const saved = store.get('log');
+if (saved) { log.innerHTML = saved; log.querySelectorAll('.typing').forEach(x=>x.remove()); log.scrollTop=1e9; } else reset();
+</script>
+</body>
+</html>

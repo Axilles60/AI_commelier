@@ -1,0 +1,22 @@
+.env
+data/profiles/
+__pycache__/
+eval/run.log
+eval/report_partial.json
+eval/dataset_run.log
+data/traces/
+eval/redteam_report.json
+eval/run_*.log
+eval/report_*.json
+!eval/report_before.json
+eval/latency_matrix.json
+eval/redteam*.json
+eval/redteam.log
+.pytest_cache/
+eval/user_sim_partial.json
+# тексты vino-svoe.ru в публичный репозиторий не кладём — скачиваются скриптами (см. README)
+data/catalog.json
+data/articles.json
+eval/teacher_answers.json
+eval/teacher_dataset.jsonl
+.claude/
